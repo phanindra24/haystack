@@ -76,8 +76,15 @@ function displayShoppingList(state=initialShoppingList,action){
     } )
 
     case 'Decrement':
-    return 
-         state--;
+    return state.map(listItem =>{
+      if(listItem.id !== action.id || listItem.count === 0){
+        return listItem;
+      }
+      return{
+        ...listItem,
+        count:listItem.count - 1
+      }
+    } )
     default:
       return state;
   }
