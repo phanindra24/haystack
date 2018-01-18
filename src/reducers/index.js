@@ -49,19 +49,24 @@ function auth(state = initialAuthState, action) {
   }
 }
 
-// const initialShoppingList=[
-//   {key: 'Tomatoes'},
-//   {key: 'Potatoes'},
-//   {key: 'Vegetable Oil'},
-//   {key: 'Chocolates'},]
+var initialShoppingList=[
+  {key: 'Tomatoes'},
+  {key: 'Potatoes'},
+  {key: 'Vegetable Oil'},
+  {key: 'Chocolates'},
+  {key: 'Beer'},
+  {key: 'Eggs'},
+  {key: 'Rice'},
+  {key: 'Tomato sauce'}]
 
-var initialShoppingList= {value:3};
+// var initialShoppingList= {value:3};
 
 function displayShoppingList(state=initialShoppingList,action){
   switch (action.type) {
     case 'Increment':
     // return { ...state, value: 444 };
-    return {value:state.value + 1};
+    return [{key: 'Tomatoes'},
+    {key: 'Potatoes'}];
 
     case 'Decrement':
     return 
