@@ -38,7 +38,19 @@ const MapScreen = () => (
             coordinate={{latitude: 17.4221,
             longitude: 78.3818}}
             title={"Zemoso"}
-            description={"Groceries Store"}
+            description={"Groceries Store 1"}
+         />
+         <MapView.Marker
+            coordinate={{latitude: 17.43,
+            longitude: 78.3818}}
+            title={"Store"}
+            description={"Groceries Store 2"}
+         />
+         <MapView.Marker
+            coordinate={{latitude: 17.4356,
+            longitude: 78.3718}}
+            title={"Store"}
+            description={"Groceries Store 3"}
          />
       
       </MapView>
