@@ -16,19 +16,21 @@ class HaystackFlatListScreen extends React.Component {
     };
   
     render() {
+      
+      var myData=[
+        {key: 'Tomatoes'},
+        {key: 'Potatoes'},
+        {key: 'Vegetable Oil'},
+        {key: 'Chocolates'},
+        {key: 'Beer'},
+        {key: 'Eggs'},
+        {key: 'Rice'},
+        {key: 'Tomato sauce'}]
+
       return (
         <View style={styles.container}>
         <FlatList
-          data={[
-            {key: 'Tomatoes'},
-            {key: 'Potatoes'},
-            {key: 'Vegetable Oil'},
-            {key: 'Chocolates'},
-            {key: 'Beer'},
-            {key: 'Eggs'},
-            {key: 'Rice'},
-            {key: 'Tomato sauce'},
-          ]}
+          data= {myData}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
         {/* <Button

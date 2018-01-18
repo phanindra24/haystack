@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import LoginScreen from '../components/LoginScreen';
-import MainScreen from '../components/MainScreen';
+// import MainScreen from '../components/MainScreen';
 import MapScreen from '../components/MapScreen';
 import HaystackScreen from '../components/HaystackScreen';
 
