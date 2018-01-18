@@ -8,15 +8,17 @@ import {
   } from 'react-navigation'; 
   import LoginStatusMessage from './LoginStatusMessage';
   import AuthButton from './AuthButton';
+
+  import MyFlatlist from '../controllers/MyFlatlist';
   
 
-class HaystackFlatListScreen extends React.Component {
+class HaystackFlatList extends React.Component {
     static navigationOptions = {
       tabBarLabel: 'RECENT',
     };
   
     render() {
-      
+
       var myData=[
         {key: 'Tomatoes'},
         {key: 'Potatoes'},
@@ -29,10 +31,14 @@ class HaystackFlatListScreen extends React.Component {
 
       return (
         <View style={styles.container}>
-        <FlatList
+<MyFlatlist />
+
+        {/* <FlatList
           data= {myData}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-        />
+        /> */}
+
+
         {/* <Button
           onPress={() => this.props.navigation.navigate('Notifications')}
           title="Go to notifications"
@@ -46,7 +52,7 @@ class HaystackFlatListScreen extends React.Component {
   }
 
 
-class HaystackSectionListScreen extends React.Component {
+class HaystackSectionList extends React.Component {
     static navigationOptions = {
       tabBarLabel: 'CATEGORIES',
     };
@@ -91,8 +97,8 @@ class HaystackSectionListScreen extends React.Component {
   });
   
   const HaystackNavigator = TabNavigator({
-    Home: {screen: HaystackFlatListScreen},
-    Notifications: {screen: HaystackSectionListScreen},
+    Home: {screen: HaystackFlatList},
+    Notifications: {screen: HaystackSectionList},
   }, {
     tabBarPosition: 'top',
     animationEnabled: true,

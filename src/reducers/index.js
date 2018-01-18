@@ -49,9 +49,32 @@ function auth(state = initialAuthState, action) {
   }
 }
 
+// const initialShoppingList=[
+//   {key: 'Tomatoes'},
+//   {key: 'Potatoes'},
+//   {key: 'Vegetable Oil'},
+//   {key: 'Chocolates'},]
+
+var initialShoppingList= {value:3};
+
+function displayShoppingList(state=initialShoppingList,action){
+  switch (action.type) {
+    case 'Increment':
+    // return { ...state, value: 444 };
+    return {value:state.value + 1};
+
+    case 'Decrement':
+    return 
+         state--;
+    default:
+      return state;
+  }
+}
+
 const AppReducer = combineReducers({
   nav,
   auth,
+  displayShoppingList,
 });
 
 export default AppReducer;
