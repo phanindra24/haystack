@@ -1,20 +1,26 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Text, View, FlatList, StyleSheet } from 'react-native';
+import { Button, Text, View, FlatList, StyleSheet, Picker } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 
-const MyFlatlist = ({ increment, decrement, shoppingliststate }) => (
+const MyFlatlist = ({ increment, decrement, shoppingliststate, isLoggedIn }) => (
 
   <View>
-    <Button
-      title={'Change List'}
-      onPress={increment}
-    />
+
     {<FlatList
       data={shoppingliststate}
-      renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+      renderItem={({ item }) => (
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.item}>{item.key}</Text>
+          <Button
+            title={'Increment'}
+            onPress={()=>increment(item.id)}
+          />
+          <Text style={styles.item}>{item.count}</Text>
+        </View>
+      )}
     />}
   </View>
 
@@ -27,7 +33,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  increment: () => dispatch({ type: 'Increment' }),
+  increment: (id) => dispatch({ type: 'Increment',id }),
   decrement: () => dispatch({ type: 'Decrement' }),
 });
 

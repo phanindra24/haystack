@@ -50,14 +50,14 @@ function auth(state = initialAuthState, action) {
 }
 
 var initialShoppingList=[
-  {key: 'Tomatoes'},
-  {key: 'Potatoes'},
-  {key: 'Vegetable Oil'},
-  {key: 'Chocolates'},
-  {key: 'Beer'},
-  {key: 'Eggs'},
-  {key: 'Rice'},
-  {key: 'Tomato sauce'}]
+  {id:0, key: 'Tomatoes', count : 0},
+  {id:1, key: 'Potatoes', count : 0},
+  {id:2, key: 'Vegetable Oil', count : 0},
+  {id:3, key: 'Chocolates', count : 0},
+  {id:4, key: 'Beer', count : 0},
+  {id:5, key: 'Eggs', count : 0},
+  {id:6, key: 'Rice', count : 0},
+  {id:7, key: 'Tomato sauce', count : 0}]
 
 // var initialShoppingList= {value:3};
 
@@ -65,8 +65,15 @@ function displayShoppingList(state=initialShoppingList,action){
   switch (action.type) {
     case 'Increment':
     // return { ...state, value: 444 };
-    return [{key: 'Tomatoes'},
-    {key: 'Potatoes'}];
+    return state.map(listItem =>{
+      if(listItem.id !== action.id){
+        return listItem;
+      }
+      return{
+        ...listItem,
+        count:listItem.count +1
+      }
+    } )
 
     case 'Decrement':
     return 

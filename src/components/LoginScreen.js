@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const LoginScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      Screen A
+      Hello
     </Text>
     <Text style={styles.instructions}>
       Please Enter Credentials
