@@ -77,6 +77,8 @@ function groc(state = initialState_Groceries, action) {
             ...listItem,
             count: listItem.count + 1
           }
+          // TODO
+          // }),recents:state.recents.push(action.id)
         })
       }
     case 'Decrement':
