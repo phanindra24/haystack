@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, Image, View, FlatList, SectionList, TouchableHighlight, Button, StyleSheet } from 'react-native';
-import LoginStatusMessage from '../LoginStatusMessage';
-import AuthButton from '../AuthButton';
-
-import MyFlatlist from '../../controllers/MyFlatlist';
+import LoginStatusMessage from '../../controllers/LoginStatusMessage';
+import AuthButton from '../../controllers/AuthButton';
+import RecentItemsList from '../../controllers/RecentItemsList';
 
 
 class HaystackRecentScreen extends React.Component {
+
   static navigationOptions = {
     tabBarLabel: 'RECENT',
   };
@@ -14,7 +14,7 @@ class HaystackRecentScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MyFlatlist />
+        <RecentItemsList />
         <LoginStatusMessage />
         <AuthButton />
       </View>
