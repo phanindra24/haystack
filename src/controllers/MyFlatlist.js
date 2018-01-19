@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Text, View, FlatList, StyleSheet, Picker } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Entypo';
 
 
 const MyFlatlist = ({ increment, decrement, shoppingliststate, isLoggedIn }) => (
@@ -13,13 +14,17 @@ const MyFlatlist = ({ increment, decrement, shoppingliststate, isLoggedIn }) => 
       data={shoppingliststate}
       renderItem={({ item }) => (
         <View style={{ flexDirection: 'row' }}>
-        <Button
+        {/* <Button
             title={'+'}
             onPress={()=>increment(item.id)}
-          />
+          /> */}
+          <Icon.Button name="circle-with-plus" size={30} onPress={()=>increment(item.id)}>
+  
+  </Icon.Button>
           <Text style={styles.item}>{item.key}</Text>
           
           <Text style={styles.itemCount}>{item.count}</Text>
+  
           <Button style={styles.decrementButton}
             title={'-'}
             onPress={()=>decrement(item.id)}
@@ -65,6 +70,12 @@ const styles = StyleSheet.create({
     height: 44,
     marginLeft: 'auto'
   },
+  // increment:{
+  //   color:'#007AFF',
+  //   backgroundColor:'#000000',
+  //   marginLeft:0,
+  //   marginRight:0
+  // },
   decrementButton:{
     alignSelf: 'flex-end',
   }
