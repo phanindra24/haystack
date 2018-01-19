@@ -49,7 +49,7 @@ function auth(state = initialAuthState, action) {
   }
 }
 
-var initialStateRecents = [
+const initialStateRecents = [
   { id: 0, key: 'Tomatoes', count: 0 },
   { id: 1, key: 'Potatoes', count: 0 },
   { id: 2, key: 'Vegetable Oil', count: 0 },
@@ -88,10 +88,50 @@ function state_RecentItems(state = initialStateRecents, action) {
   }
 }
 
+const initialState_Groceries =[
+  { id: 0, key: 'Tomatoes', count: 0, cat:'Vegetables' },
+  { id: 1, key: 'Potatoes', count: 0, cat:'Vegetables' },
+  { id: 2, key: 'Vegetable Oil', count: 0, cat:'Packaged Foods' },
+  { id: 3, key: 'Chocolates', count: 0, cat:'Packaged Foods' },
+  { id: 4, key: 'Beer', count: 0, cat:'Drinks' },
+  { id: 5, key: 'Eggs', count: 0, cat:'Meat' },
+  { id: 6, key: 'Rice', count: 0, cat:'Cereals' },
+  { id: 7, key: 'Tomato sauce', count: 0, cat:'Packaged Foods' }
+];
+
+function groc(state = initialState_Groceries, action) {
+
+  switch (action.type) {
+    case 'Increment':
+      return state.map(listItem => {
+        if (listItem.id !== action.id) {
+          return listItem;
+        }
+        return {
+          ...listItem,
+          count: listItem.count + 1
+        }
+      })
+    case 'Decrement':
+      return state.map(listItem => {
+        if (listItem.id !== action.id || listItem.count === 0) {
+          return listItem;
+        }
+        return {
+          ...listItem,
+          count: listItem.count - 1
+        }
+      })
+    default:
+      return state;
+  }
+}
+
 const AppReducer = combineReducers({
   nav,
   auth,
   state_RecentItems,
+  groc,
 });
 
 export default AppReducer;

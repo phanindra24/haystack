@@ -7,7 +7,8 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const ListItem = ({ item, increment, decrement }) => (
     <View style={{ flexDirection: 'row' }}>
-        <Icon.Button name="circle-with-plus" size={30} onPress={() => increment(item.id)}></Icon.Button>
+        {/* <Icon.Button name="circle-with-plus" size={30} onPress={() => increment(item.id)}></Icon.Button> */}
+        <Button title={'+'} onPress={() => increment(item.id)} />
         <Text style={styles.item}>{item.key}</Text>
         <Text style={styles.itemCount}>{item.count}</Text>
         <Button style={styles.decrementButton} title={'-'} onPress={() => decrement(item.id)} />

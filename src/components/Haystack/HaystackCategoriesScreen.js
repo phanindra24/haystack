@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, Image, View, FlatList, SectionList, TouchableHighlight, Button, StyleSheet } from 'react-native';
 import LoginStatusMessage from '../../controllers/LoginStatusMessage';
 import AuthButton from '../../controllers/AuthButton';
+import CategoriesList from '../../controllers/CategoriesList';
+
 
 class HaystackCategoriesScreen extends React.Component {
     static navigationOptions = {
@@ -11,20 +13,10 @@ class HaystackCategoriesScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <SectionList
-                    sections={[
-                        { title: 'D', data: ['Devin'] },
-                        { title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie'] },
-                    ]}
-                    renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
-                    renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-                    keyExtractor={(item, index) => index}
-                />
+                <CategoriesList />
                 <LoginStatusMessage />
                 <AuthButton />
             </View>
-
-
         );
     }
 }
