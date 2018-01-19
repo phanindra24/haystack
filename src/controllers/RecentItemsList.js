@@ -5,11 +5,19 @@ import { Button, Text, View, FlatList, StyleSheet, Picker } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import ListItem from './ListItem'
 
+// function getRecentItemsformState(list){
+//   var RecentList=[];
+//   list.data.forEach(element => {
+//     if(list.recents.indexOf(element.id) >=0){
+//       RecentList.push(element);
 
-const RecentItemsList = ({state_RecentItems }) => (
+//     }
+//   });
+// }
+const RecentItemsList = ({groc }) => (
   <View>
     {<FlatList
-      data={state_RecentItems}
+      data={groc.data}
       renderItem={({ item }) => (
         <ListItem item={item} />
       )}
@@ -18,11 +26,11 @@ const RecentItemsList = ({state_RecentItems }) => (
 );
 
 RecentItemsList.propTypes = {
-  state_RecentItems: PropTypes.array.isRequired, 
+  groc: PropTypes.object.isRequired, 
 };
 
 const mapStateToProps = state => ({
-  state_RecentItems: state.state_RecentItems,
+  groc: state.groc,
 });
 
 

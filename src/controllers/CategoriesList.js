@@ -8,7 +8,7 @@ import ListItem from './ListItem'
 function getCategoriesfromState(list){
     var catList=[];
     var catWithItemsList=[];
-    list.forEach(element => {
+    list.data.forEach(element => {
         var catIndex= catList.indexOf(element.cat)
         if(catIndex < 0){
             catList.push(element.cat);
@@ -38,7 +38,7 @@ const CategoriesList = ({ groc }) => (
 );
 
 CategoriesList.propTypes = {
-    groc: PropTypes.array.isRequired,
+    groc: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
