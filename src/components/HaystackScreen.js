@@ -8,8 +8,8 @@ import HaystackCategoriesScreen from './Haystack/HaystackCategoriesScreen'
 
 
 const HaystackNavigator = TabNavigator({
-  Home: { screen: HaystackRecentScreen },
-  Notifications: { screen: HaystackCategoriesScreen },
+  Recent: { screen: HaystackRecentScreen },
+  Categories: { screen: HaystackCategoriesScreen },
 }, {
     tabBarPosition: 'top',
     animationEnabled: true,
@@ -22,7 +22,7 @@ const HaystackNavigator = TabNavigator({
 class HaystackScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Shopping List',
+    title: 'Grocery List',
   };
   render() {
     return <HaystackNavigator />

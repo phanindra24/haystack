@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Image, View, FlatList, SectionList, TouchableHighlight, Button, StyleSheet } from 'react-native';
-
+import LoginStatusMessage from '../../controllers/LoginStatusMessage';
+import AuthButton from '../../controllers/AuthButton';
 
 class HaystackCategoriesScreen extends React.Component {
     static navigationOptions = {
@@ -19,10 +20,8 @@ class HaystackCategoriesScreen extends React.Component {
                     renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                 />
-                <Button
-                    onPress={() => this.props.navigation.goBack()}
-                    title="Go back home"
-                />
+                <LoginStatusMessage />
+                <AuthButton />
             </View>
 
 

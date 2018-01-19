@@ -49,42 +49,40 @@ function auth(state = initialAuthState, action) {
   }
 }
 
-var initialShoppingList=[
-  {id:0, key: 'Tomatoes', count : 0},
-  {id:1, key: 'Potatoes', count : 0},
-  {id:2, key: 'Vegetable Oil', count : 0},
-  {id:3, key: 'Chocolates', count : 0},
-  {id:4, key: 'Beer', count : 0},
-  {id:5, key: 'Eggs', count : 0},
-  {id:6, key: 'Rice', count : 0},
-  {id:7, key: 'Tomato sauce', count : 0}]
+var initialStateRecents = [
+  { id: 0, key: 'Tomatoes', count: 0 },
+  { id: 1, key: 'Potatoes', count: 0 },
+  { id: 2, key: 'Vegetable Oil', count: 0 },
+  { id: 3, key: 'Chocolates', count: 0 },
+  { id: 4, key: 'Beer', count: 0 },
+  { id: 5, key: 'Eggs', count: 0 },
+  { id: 6, key: 'Rice', count: 0 },
+  { id: 7, key: 'Tomato sauce', count: 0 }]
 
-// var initialShoppingList= {value:3};
 
-function displayShoppingList(state=initialShoppingList,action){
+function state_RecentItems(state = initialStateRecents, action) {
+
   switch (action.type) {
     case 'Increment':
-    // return { ...state, value: 444 };
-    return state.map(listItem =>{
-      if(listItem.id !== action.id){
-        return listItem;
-      }
-      return{
-        ...listItem,
-        count:listItem.count +1
-      }
-    } )
-
+      return state.map(listItem => {
+        if (listItem.id !== action.id) {
+          return listItem;
+        }
+        return {
+          ...listItem,
+          count: listItem.count + 1
+        }
+      })
     case 'Decrement':
-    return state.map(listItem =>{
-      if(listItem.id !== action.id || listItem.count === 0){
-        return listItem;
-      }
-      return{
-        ...listItem,
-        count:listItem.count - 1
-      }
-    } )
+      return state.map(listItem => {
+        if (listItem.id !== action.id || listItem.count === 0) {
+          return listItem;
+        }
+        return {
+          ...listItem,
+          count: listItem.count - 1
+        }
+      })
     default:
       return state;
   }
@@ -93,7 +91,7 @@ function displayShoppingList(state=initialShoppingList,action){
 const AppReducer = combineReducers({
   nav,
   auth,
-  displayShoppingList,
+  state_RecentItems,
 });
 
 export default AppReducer;

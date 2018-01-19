@@ -1,33 +1,31 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, Text, View, FlatList, StyleSheet, Picker } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import ListItem from './ListItem'
 
 
-const RecentItemsList = ({ increment, decrement, shoppingliststate }) => (
-
+const RecentItemsList = ({state_RecentItems }) => (
   <View>
     {<FlatList
-      data={shoppingliststate}
+      data={state_RecentItems}
       renderItem={({ item }) => (
-        <ListItem item={item} onPressFirst={increment} onPressSecond={decrement} />
+        <ListItem item={item} />
       )}
     />}
   </View>
 );
 
-
+RecentItemsList.propTypes = {
+  state_RecentItems: PropTypes.array.isRequired, 
+};
 
 const mapStateToProps = state => ({
-  shoppingliststate: state.displayShoppingList,
+  state_RecentItems: state.state_RecentItems,
 });
 
-const mapDispatchToProps = dispatch => ({
-  increment: (id) => dispatch({ type: 'Increment', id }),
-  decrement: (id) => dispatch({ type: 'Decrement', id }),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecentItemsList);
+
+export default connect(mapStateToProps)(RecentItemsList);
 

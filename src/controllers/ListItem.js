@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import { Button, Text, View, FlatList, StyleSheet, Picker } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 
@@ -13,6 +13,12 @@ const ListItem = ({ item, increment, decrement }) => (
         <Button style={styles.decrementButton} title={'-'} onPress={() => decrement(item.id)} />
     </View>
 );
+
+ListItem.propTypes = {
+    item: PropTypes.object.isRequired,
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,  
+};
 
 const mapDispatchToProps = dispatch => ({
     increment: (id) => dispatch({ type: 'Increment', id }),
